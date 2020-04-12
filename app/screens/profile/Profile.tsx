@@ -1,13 +1,33 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import ProfileFragment from '../../components/ProfileFragment'
+import Wrapper from '../../components/Wrapper'
 
 const Profile = () => {
   return (
-    <View>
+    <Wrapper>
       <ProfileFragment />
-    </View>
+      <View style={styles.steelfireContainer}>
+        <Image
+          style={styles.steelfire}
+          source={{
+            uri:
+              'https://emoji.slack-edge.com/T0257R0RP/steelfire/5b53df12e7045ba4.png'
+          }}
+        />
+      </View>
+    </Wrapper>
   )
 }
+
+const styles = StyleSheet.create({
+  steelfireContainer: {
+    alignItems: 'center'
+  },
+  steelfire: {
+    width: 50,
+    height: 50
+  }
+})
 
 export default Profile

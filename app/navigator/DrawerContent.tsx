@@ -4,8 +4,12 @@ import { DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer'
 import { Drawer, Text, TouchableRipple, Switch } from 'react-native-paper'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import ProfileFragment from '../components/ProfileFragment'
+import { PreferencesContext } from '../context/preferencesContext'
 
 export function DrawerContent(props: any) {
+  const { rtl, theme, toggleRTL, toggleTheme } = React.useContext(
+    PreferencesContext
+  )
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.drawerContent}>
@@ -22,41 +26,23 @@ export function DrawerContent(props: any) {
               />
             )}
             label="Profile"
-            onPress={() => {}}
-          />
-          <DrawerItem
-            icon={({ color, size }) => (
-              <MaterialCommunityIcons name="tune" color={color} size={size} />
-            )}
-            label="Preferences"
-            onPress={() => {}}
-          />
-          <DrawerItem
-            icon={({ color, size }) => (
-              <MaterialCommunityIcons
-                name="bookmark-outline"
-                color={color}
-                size={size}
-              />
-            )}
-            label="Bookmarks"
-            onPress={() => {}}
+            onPress={() => props.navigation.navigate('Profile')}
           />
         </Drawer.Section>
         <Drawer.Section title="Preferences">
-          <TouchableRipple onPress={() => {}}>
+          <TouchableRipple onPress={toggleTheme}>
             <View style={styles.preference}>
               <Text>Dark Theme</Text>
               <View pointerEvents="none">
-                <Switch value={false} />
+                <Switch value={theme === 'dark'} />
               </View>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
+          <TouchableRipple onPress={toggleRTL}>
             <View style={styles.preference}>
               <Text>RTL</Text>
               <View pointerEvents="none">
-                <Switch value={false} />
+                <Switch value={rtl === 'right'} />
               </View>
             </View>
           </TouchableRipple>

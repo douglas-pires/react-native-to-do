@@ -1,23 +1,36 @@
 import React from 'react'
-import { View, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView, StyleProp } from 'react-native'
 import { Props } from 'react'
+import { withTheme, Theme } from 'react-native-paper'
 
-export default ({ children }: Props<ChildNode>) => (
-  <ScrollView style={styles.container}>
-    <View style={styles.container}>{children}</View>
-  </ScrollView>
+type Wrapper = {
+  style?: StyleProp<any>
+  theme: Theme
+}
+
+export default withTheme(
+  ({ children, style, theme }: Props<ChildNode> & Wrapper) => (
+    <View
+      style={[
+        styles.container,
+        style,
+        {
+          backgroundColor: theme.colors.background
+        }
+      ]}
+    >
+      <ScrollView style={styles.view}>{children}</ScrollView>
+    </View>
+  )
 )
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 10
+    position: 'relative',
+    flexGrow: 1
   },
   view: {
-    padding: 10,
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    padding: 20,
+    flex: 1
   }
 })
