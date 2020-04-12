@@ -11,7 +11,6 @@ const Drawer = createDrawerNavigator()
 
 export const RootNavigator = () => {
   const theme = useTheme()
-  console.log(theme.dark)
   const navigationTheme = theme.dark ? DarkTheme : DefaultTheme
 
   return (
