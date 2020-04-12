@@ -6,5 +6,5 @@ export type RootState = {
 }
 
 export default {
-  todos: [{ id: 0, placeholder: 'Create a Todo' }]
+  todos: [{ id: 0, placeholder: 'Create a Todo', text: '' }]
 } as RootState
