@@ -6,7 +6,7 @@ Just a nice an easy demo for React Native using Redux and React Native Paper.
 
 ## Why?
 
-- Why not?
+- Why not? 😆
 - Play with React Native
 
 ## What do I use?
