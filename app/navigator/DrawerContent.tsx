@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer'
 import { Drawer, Text, TouchableRipple, Switch } from 'react-native-paper'
@@ -7,9 +7,7 @@ import ProfileFragment from '../components/ProfileFragment'
 import { PreferencesContext } from '../context/preferencesContext'
 
 export function DrawerContent(props: any) {
-  const { rtl, theme, toggleRTL, toggleTheme } = React.useContext(
-    PreferencesContext
-  )
+  const { rtl, theme, toggleRTL, toggleTheme } = useContext(PreferencesContext)
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.drawerContent}>
