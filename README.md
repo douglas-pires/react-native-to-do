@@ -15,3 +15,4 @@ Just a nice an easy demo for React Native using Redux and React Native Paper.
 - [React Native Paper](https://callstack.github.io/react-native-paper/)
 - [Redux](https://redux.js.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
